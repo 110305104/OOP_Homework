@@ -1,0 +1,103 @@
+        -:    0:Source:/Users/chenyuehon/gitRepos/gtest_exercise/src/sphere.cc
+        -:    0:Graph:/Users/chenyuehon/gitRepos/gtest_exercise/build/src/CMakeFiles/sphere.dir/sphere.cc.gcno
+        -:    0:Data:/Users/chenyuehon/gitRepos/gtest_exercise/build/src/CMakeFiles/sphere.dir/sphere.cc.gcda
+        -:    0:Runs:1
+        -:    1:#include "sphere.h"
+        -:    2:
+        -:    3:#include <cmath>
+        -:    4:#include <iostream>
+        -:    5:using namespace std;
+        -:    6:
+       1*:    7:Sphere::Sphere() {
+       1*:    8:    this->orig_x = 0.0;
+       1*:    9:    this->orig_y = 0.0;
+       1*:   10:    this->orig_z = 0.0;
+       1*:   11:    this->radius = 0.0;
+       1*:   12:}
+------------------
+_ZN6SphereC1Ev:
+        1:    7:Sphere::Sphere() {
+        1:    8:    this->orig_x = 0.0;
+        1:    9:    this->orig_y = 0.0;
+        1:   10:    this->orig_z = 0.0;
+        1:   11:    this->radius = 0.0;
+        1:   12:}
+------------------
+_ZN6SphereC2Ev:
+    #####:    7:Sphere::Sphere() {
+    #####:    8:    this->orig_x = 0.0;
+    #####:    9:    this->orig_y = 0.0;
+    #####:   10:    this->orig_z = 0.0;
+    #####:   11:    this->radius = 0.0;
+    #####:   12:}
+------------------
+        -:   13:
+       1*:   14:Sphere::Sphere(float ox, float oy, float oz, float rad) {
+       1*:   15:    this->orig_x = ox;
+       1*:   16:    this->orig_y = oy;
+       1*:   17:    this->orig_z = oz;
+       1*:   18:    if (rad >= 0)
+       1*:   19:        this->radius = rad;
+        -:   20:    else
+    #####:   21:        this->radius = 0;
+       1*:   22:}
+------------------
+_ZN6SphereC1Effff:
+        1:   14:Sphere::Sphere(float ox, float oy, float oz, float rad) {
+        1:   15:    this->orig_x = ox;
+        1:   16:    this->orig_y = oy;
+        1:   17:    this->orig_z = oz;
+        1:   18:    if (rad >= 0)
+        1:   19:        this->radius = rad;
+        -:   20:    else
+    #####:   21:        this->radius = 0;
+        1:   22:}
+------------------
+_ZN6SphereC2Effff:
+    #####:   14:Sphere::Sphere(float ox, float oy, float oz, float rad) {
+    #####:   15:    this->orig_x = ox;
+    #####:   16:    this->orig_y = oy;
+    #####:   17:    this->orig_z = oz;
+    #####:   18:    if (rad >= 0)
+    #####:   19:        this->radius = rad;
+        -:   20:    else
+    #####:   21:        this->radius = 0;
+    #####:   22:}
+------------------
+        -:   23:
+        6:   24:float* Sphere::getOrigin() {
+        6:   25:    float* result = new float[3]{this->orig_x, this->orig_y, this->orig_z};
+        6:   26:    return result;
+        -:   27:}
+        -:   28:
+        2:   29:float Sphere::getRadius() {
+        2:   30:    return this->radius;
+        -:   31:}
+        -:   32:
+        1:   33:void Sphere::setOrigin(float ox, float oy, float oz) {
+        1:   34:    this->orig_x = ox;
+        1:   35:    this->orig_y = oy;
+        1:   36:    this->orig_z = oy;
+        1:   37:}
+        -:   38:
+        1:   39:void Sphere::setRadius(float rad) {
+        1:   40:    this->radius = 0;
+        1:   41:}
+        -:   42:
+    #####:   43:bool Sphere::intersect(Sphere& other) {
+    #####:   44:    float dist = sqrt(pow(this->orig_x - other.orig_x, 2) + pow(this->orig_y - other.orig_y, 2) + pow(this->orig_z - other.orig_z, 2));
+    #####:   45:    return true;
+        -:   46:}
+        -:   47:
+    #####:   48:float Sphere::SurfaceArea() {
+    #####:   49:    return 4 * M_PI * pow(this->radius, 2);
+        -:   50:}
+        -:   51:
+    #####:   52:float Sphere::Volume() {
+    #####:   53:    return (4 / 3) * M_PI * pow(this->radius, 2);
+        -:   54:}
+        -:   55:
+    #####:   56:ostream& operator<<(ostream& os, const Sphere& sphere) {
+    #####:   57:    os << "[( " << sphere.orig_x << ", " << sphere.orig_y << ", " << sphere.orig_z << "), " << sphere.radius << "]";
+    #####:   58:    return os;
+        -:   59:}
